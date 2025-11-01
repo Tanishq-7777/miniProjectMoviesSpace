@@ -22,7 +22,7 @@ export default function Movies() {
   };
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [moviesList]);
   console.log(moviesList);
   return (
     <div className="min-h-screen w-full bg-stone-900">
