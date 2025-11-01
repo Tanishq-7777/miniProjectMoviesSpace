@@ -1,4 +1,5 @@
 import { use, useEffect, useState } from "react";
+import { NavLink } from "react-router";
 
 export default function Landing() {
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,7 @@ export default function Landing() {
   }, []);
   console.log(movies);
   return (
-    <div className="max-w-7xl m-auto text-4xl mt-5">
+    <div className="max-w-7xl m-auto text-2xl mt-5">
       <h1 className="text-white text-center">A Space of Movies</h1>
       <div className="movie-main mt-10 flex flex-wrap justify-center gap-10">
         {movies.map((movie) => {
@@ -30,6 +31,11 @@ export default function Landing() {
             </div>
           );
         })}
+      </div>
+      <div className="text-center">
+        <button className="bg-white mt-10 mb-10 px-3 py-2 rounded-4xl">
+          <NavLink to="/movies">See More</NavLink>
+        </button>
       </div>
     </div>
   );

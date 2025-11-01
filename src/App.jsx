@@ -1,11 +1,14 @@
-import Landing from "./components/Landing";
-import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Movies from "./components/Movies";
 
 export default function App() {
   return (
-    <div className="min-h-screen w-full bg-stone-900">
-      <Navbar />
-      <Landing />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
