@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
   const fetchMovies = async () => {
-    const url = "http//imdb236.p.rapidapi.com/api/imdb/most-popular-movies";
+    const url = "https://imdb236.p.rapidapi.com/api/imdb/most-popular-movies";
     const options = {
       method: "GET",
       headers: {
