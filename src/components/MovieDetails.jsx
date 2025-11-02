@@ -29,7 +29,7 @@ export default function MovieDetails() {
   console.log(singleMovie);
   return (
     <div className="w-full h-screen  bg-stone-900 flex items-center justify-center">
-      <div className="h-120 w-160 movie-container rounded-lg border-4 border-green-300  bg-stone-900 text-white flex flex-col items-center justify-center">
+      <div className="md:h-120 h-100 w-120 md:w-160 movie-container rounded-lg border-4 border-green-300  bg-stone-900 text-white flex flex-col items-center justify-center">
         <div>
           <ReactPlayer src={singleMovie.trailer} />
         </div>

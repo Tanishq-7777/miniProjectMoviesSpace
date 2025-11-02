@@ -1,5 +1,5 @@
 import { use, useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export default function Landing() {
   const [movies, setMovies] = useState([]);
@@ -19,7 +19,8 @@ export default function Landing() {
         {movies.map((movie) => {
           const { Poster } = movie;
           return (
-            <div
+            <Link
+              to={`/movies/${movie.imdbID}`}
               key={movie.imdbID}
               className="card w-1/2 md:w-1/3  h-60 bg-stone-800 rounded-lg flex items-center justify-center text-white"
             >
@@ -28,7 +29,7 @@ export default function Landing() {
                 src={Poster}
                 alt=""
               />
-            </div>
+            </Link>
           );
         })}
       </div>
