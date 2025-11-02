@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
   const fetchMovies = async () => {
-    const url = "https://imdb236.p.rapidapi.com/api/imdb/most-popular-movies";
+    const url =
+      "https://imdb236.p.rapidapi.com/api/imdb/top-rated-english-movies";
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "fad3cf5020msh4873e60572eb5b6p18be83jsn8a2c1d80ad54",
+        "x-rapidapi-key": "ffc834759cmshd405526cfe22042p1548a8jsn04b0664f2de5",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };
@@ -22,7 +24,7 @@ export default function Movies() {
   };
   useEffect(() => {
     fetchMovies();
-  }, [moviesList]);
+  }, []);
   console.log(moviesList);
   return (
     <div className="min-h-screen w-full bg-stone-900">
@@ -32,8 +34,9 @@ export default function Movies() {
           {moviesList.map((movie) => {
             const { primaryTitle, primaryImage } = movie;
             return (
-              <div
+              <Link
                 key={movie.id}
+                to={`/movies/${movie.id}`}
                 className="card w-1/2 md:w-1/3 flex flex-col gap-6 border-16 border-stone-800   rounded-lg item-center justify-center text-white"
               >
                 <div className="h-full w-full  rounded-t-lg">
@@ -46,7 +49,7 @@ export default function Movies() {
                 <div className="p-2 bg-stone-900 text-white text-center truncate">
                   <p className="text-sm font-semibold">{primaryTitle}</p>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
