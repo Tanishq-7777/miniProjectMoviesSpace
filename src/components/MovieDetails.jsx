@@ -30,7 +30,7 @@ export default function MovieDetails() {
   console.log(singleMovie);
   return (
     <div className="w-full h-screen  bg-stone-900 flex items-center justify-center">
-      <Card singleMovie={singleMovie} />;
+      <Card singleMovie={singleMovie} />
     </div>
   );
 }

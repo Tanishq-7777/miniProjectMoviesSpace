@@ -21,15 +21,15 @@ export function Card({ singleMovie }) {
         >
           {singleMovie.description}
         </CardItem>
-        <CardItem translateZ="100" className="w-full mt-4">
+        <CardItem className="w-full mt-4">
           <ReactPlayer
             src={singleMovie.trailer}
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            playing
+            playing={true}
             loop
-            controls
+            controls={true}
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
