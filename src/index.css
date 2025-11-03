@@ -1,8 +1,8 @@
 @import "tailwindcss";
 .card {
-  box-shadow: 10px -10px 5px 1px white;
+  box-shadow: 10px -10px 5px 1px green;
 }
 .movie-container {
   padding: 10px;
-  box-shadow: 0px 0px 15px 10px white;
+  box-shadow: 0px 0px 15px 10px green;
 }

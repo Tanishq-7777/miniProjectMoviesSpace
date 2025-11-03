@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ReactPlayer from "react-player";
+import { Card } from "./Card";
 
 export default function MovieDetails() {
   const [singleMovie, setSingleMovie] = useState([]);
@@ -10,7 +11,7 @@ export default function MovieDetails() {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "ffc834759cmshd405526cfe22042p1548a8jsn04b0664f2de5",
+        "x-rapidapi-key": "f2dc7cb686msh47b97716abc3104p1fd2dfjsn5280ecdd3c03",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };
@@ -29,17 +30,7 @@ export default function MovieDetails() {
   console.log(singleMovie);
   return (
     <div className="w-full h-screen  bg-stone-900 flex items-center justify-center">
-      <div className="md:h-120 h-100 w-120 md:w-160 movie-container rounded-lg border-4 border-green-300  bg-stone-900 text-white flex flex-col items-center justify-center">
-        <div>
-          <ReactPlayer src={singleMovie.trailer} />
-        </div>
-        <div>
-          <div>Title : {singleMovie.primaryTitle}</div>
-          <div>Rating : {singleMovie.averageRating}</div>
-          <div>Rated: {singleMovie.contentRating}</div>
-          <div>Story : {singleMovie.description}</div>
-        </div>
-      </div>
+      <Card singleMovie={singleMovie} />;
     </div>
   );
 }
