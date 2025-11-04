@@ -28,7 +28,7 @@ export default function Landing() {
           placeholder="Search your movie..."
           value={input}
           onChange={handleInputChange}
-          className="w-[70%] md:w-[60%] bg-gradient-to-r from-[#ff512f] to-[#dd2476] 
+          className=" w-[50%] sm:w-1/2 bg-gradient-to-r from-[#ff512f] to-[#dd2476] 
          placeholder-white shadow-[0_0_20px_rgba(255,100,100,0.5)]  lg:w-[40%] p-4 rounded-3xl text-black text-lg outline-none shadow-lg focus:shadow-xl transition-all duration-300"
         />
       </div>
