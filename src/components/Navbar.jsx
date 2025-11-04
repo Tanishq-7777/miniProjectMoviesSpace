@@ -33,10 +33,10 @@ export default function Navbar() {
                 Home
               </a>
               <a href="#" className="hover:text-orange-400 transition">
-                About Us
+                Genre
               </a>
               <a href="#" className="hover:text-orange-400 transition">
-                Contact Us
+                WatchList
               </a>
             </div>
 
@@ -55,11 +55,11 @@ export default function Navbar() {
             <Link to="/" className="hover:text-orange-400 transition">
               Home
             </Link>
-            <Link href="#" className="hover:text-orange-400 transition">
+            <Link to="/genre" className="hover:text-orange-400 transition">
               Genre
             </Link>
             <Link href="#" className="hover:text-orange-400 transition">
-              WhishList
+              WatchList
             </Link>
           </div>
         </div>

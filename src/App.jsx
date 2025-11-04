@@ -5,6 +5,7 @@ import MovieDetails from "./components/MovieDetails";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
 import Footer from "./components/Footer";
+import Genre from "./components/Genre";
 
 export default function App() {
   const [input, setInput] = useState();
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/movies" element={<Movies />}></Route>
         <Route path="/movies/:id" element={<MovieDetails />}></Route>
+        <Route path="/genre" element={<Genre />}></Route>
       </Routes>
     </BrowserRouter>
   );
