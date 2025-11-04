@@ -2,7 +2,7 @@ import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 
 export default function Landing() {
-  const [input, setInput] = useState("war");
+  const [input, setInput] = useState("");
   const [movies, setMovies] = useState([]);
   const handleInputChange = (e) => {
     setInput(e.target.value);

@@ -11,7 +11,7 @@ export default function MovieDetails() {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "5633d15da1msh0473b559c7dccf4p17efafjsn9a6221588109",
+        "x-rapidapi-key": "d5ec0f631dmsh7d6eec405b80572p199a0ejsn9b3a3603da94",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };
@@ -30,7 +30,7 @@ export default function MovieDetails() {
   console.log(singleMovie);
   return (
     <div className="w-full h-screen  bg-stone-900 flex items-center justify-center">
-      <Card singleMovie={singleMovie} />
+      <Card singleMovie={singleMovie} id={id} />
     </div>
   );
 }

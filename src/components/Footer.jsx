@@ -1,10 +1,10 @@
 import { Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] text-white py-8 mt-20">
       <div className="max-w-7xl mx-auto  flex flex-col md:flex-row justify-between items-center gap-6">
-        {/* Left Section */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold tracking-wide">
             <span className="text-orange-500">M</span>OV
@@ -17,23 +17,21 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Center Links */}
         <div className="flex flex-wrap justify-center gap-6 text-sm">
-          <a href="#" className="hover:text-orange-400 transition">
+          <Link to="/" className="hover:text-orange-400 transition">
             Home
-          </a>
-          <a href="#" className="hover:text-orange-400 transition">
-            Contact
-          </a>
+          </Link>
+          <Link t="/genre" className="hover:text-orange-400 transition">
+            Genre
+          </Link>
           <a href="#" className="hover:text-orange-400 transition">
             Help
           </a>
         </div>
 
-        {/* Right Section (Socials) */}
         <div className="flex flex-col gap-4">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/tanishq_saxena07/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-orange-400 transition"
@@ -41,7 +39,7 @@ export default function Footer() {
             <Instagram size={22} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="www.linkedin.com/in/tanishq-saxena-20bb75344"
             target="_blank"
             rel="noreferrer"
             className="hover:text-green-400 transition"
