@@ -11,7 +11,7 @@ export default function MovieCast() {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "d5ec0f631dmsh7d6eec405b80572p199a0ejsn9b3a3603da94",
+        "x-rapidapi-key": "4ea82d44dbmsh7b354a828f8f444p12260bjsncc24febb35a8",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };
