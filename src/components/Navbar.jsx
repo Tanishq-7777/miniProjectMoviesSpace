@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="m-auto rounded-3xl w-[90%]  sm:w-[80%] z-50 bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] text-white py-2 ">
+        <div className="m-auto rounded-3xl w-full  sm:w-[80%] z-50 bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] text-white py-2 ">
           <div className="nav-compo max-w-7xl mx-auto text-white flex items-center justify-between px-12 py-3">
             <div className="logo flex items-center font-bold tracking-wide">
               <div className="ml-2 mr-2">

@@ -20,16 +20,15 @@ export default function Landing() {
   useEffect(() => {
     fetchMovies();
   }, [input]);
-  console.log(movies);
   return (
-    <div className="max-w-12xl m-auto text-2xl mt-5 flex flex-col justify-center">
+    <div className="max-w-1xl m-auto text-2xl mt-5 flex flex-col justify-center">
       <div className="w-full flex justify-center mb-10">
         <input
           type="text"
           placeholder="Search your movie..."
           value={input}
           onChange={handleInputChange}
-          className="w-[50%] md:w-[60%] bg-gradient-to-r from-[#ff512f] to-[#dd2476] 
+          className="w-[70%] md:w-[60%] bg-gradient-to-r from-[#ff512f] to-[#dd2476] 
          placeholder-white shadow-[0_0_20px_rgba(255,100,100,0.5)]  lg:w-[40%] p-4 rounded-3xl text-black text-lg outline-none shadow-lg focus:shadow-xl transition-all duration-300"
         />
       </div>
