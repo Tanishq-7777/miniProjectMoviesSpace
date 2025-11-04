@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Button from "./Button";
 import MovieDetails from "./MovieDetails";
 import GenreCard from "./GenreCard";
+import Footer from "./Footer";
 
 export default function Genre() {
   const [genreButton, setGenreButton] = useState("");
@@ -12,7 +13,7 @@ export default function Genre() {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "887ff7f35amsh28723ad62fabc8cp1283e8jsn6586831dc150",
+        "x-rapidapi-key": "5633d15da1msh0473b559c7dccf4p17efafjsn9a6221588109",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };
@@ -31,11 +32,11 @@ export default function Genre() {
   console.log(genreButton);
   return (
     <div className="w-full min-h-screen    bg-gradient-to-r from-[#ff512f] to-[#dd2476] ">
-      <div className="py-2">
+      <div className="py-4">
         <Navbar />
       </div>
-      <div className="flex flex-col gap-80 md:gap-10 sm:gap-50">
-        <div className="w-full h-10 flex flex-wrap justify-center   text-white">
+      <div className="flex flex-col">
+        <div className="w-full min-h-10 flex flex-wrap justify-center   text-white">
           {genre.map((genres) => {
             return (
               <Button
@@ -48,6 +49,9 @@ export default function Genre() {
         </div>
         <div className="">
           <GenreCard genreButton={genreButton} />
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </div>

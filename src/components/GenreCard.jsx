@@ -10,7 +10,7 @@ export default function GenreCard({ genreButton }) {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "887ff7f35amsh28723ad62fabc8cp1283e8jsn6586831dc150",
+        "x-rapidapi-key": "5633d15da1msh0473b559c7dccf4p17efafjsn9a6221588109",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };

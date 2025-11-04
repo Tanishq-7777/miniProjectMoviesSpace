@@ -9,7 +9,7 @@ export default function Movies() {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "234fad9013msh2fd643add9cd6efp146754jsn1ca1e085cd82",
+        "x-rapidapi-key": "5633d15da1msh0473b559c7dccf4p17efafjsn9a6221588109",
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
       },
     };

@@ -32,9 +32,9 @@ export default function Navbar() {
               <a href="#" className="hover:text-orange-400 transition">
                 Home
               </a>
-              <a href="#" className="hover:text-orange-400 transition">
+              <Link to="/genre" className="hover:text-orange-400 transition">
                 Genre
-              </a>
+              </Link>
               <a href="#" className="hover:text-orange-400 transition">
                 WatchList
               </a>
