@@ -21,7 +21,7 @@ export default function Footer() {
           <Link to="/" className="hover:text-orange-400 transition">
             Home
           </Link>
-          <Link t="/genre" className="hover:text-orange-400 transition">
+          <Link t0="/genre" className="hover:text-orange-400 transition">
             Genre
           </Link>
           <a href="#" className="hover:text-orange-400 transition">
@@ -31,7 +31,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4">
           <Link
-            href="https://www.instagram.com/tanishq_saxena07/"
+            to="https://www.instagram.com/tanishq_saxena07/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-orange-400 transition"
@@ -39,7 +39,8 @@ export default function Footer() {
             <Instagram size={22} />
           </Link>
           <Link
-            href="www.linkedin.com/in/tanishq-saxena-20bb75344"
+            to="https://www.linkedin.com/in/tanishq-saxena-20bb75344"
+            target="_blank"
             className="hover:text-green-400 transition"
           >
             <Linkedin size={22} />
