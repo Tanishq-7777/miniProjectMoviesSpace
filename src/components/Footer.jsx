@@ -21,7 +21,7 @@ export default function Footer() {
           <Link to="/" className="hover:text-orange-400 transition">
             Home
           </Link>
-          <Link t0="/genre" className="hover:text-orange-400 transition">
+          <Link to="/genre" className="hover:text-orange-400 transition">
             Genre
           </Link>
           <a href="#" className="hover:text-orange-400 transition">
