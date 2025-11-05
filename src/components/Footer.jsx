@@ -30,22 +30,20 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-4">
-          <a
+          <Link
             href="https://www.instagram.com/tanishq_saxena07/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-orange-400 transition"
           >
             <Instagram size={22} />
-          </a>
-          <a
+          </Link>
+          <Link
             href="www.linkedin.com/in/tanishq-saxena-20bb75344"
-            target="_blank"
-            rel="noreferrer"
             className="hover:text-green-400 transition"
           >
             <Linkedin size={22} />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
