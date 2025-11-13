@@ -1,69 +1,48 @@
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router";
-
-export default function Navbar() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
+import React from "react";
+const Navbar = () => {
   return (
-    <>
-      <div className="flex justify-center w-full">
-        <div className="m-auto rounded-3xl w-full  sm:w-[80%] z-50 bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] text-white py-2 ">
-          <div className="nav-compo max-w-7xl mx-auto text-white flex items-center justify-between px-12 py-3">
-            <div className="logo flex items-center font-bold tracking-wide">
-              <div className="ml-2 mr-2">
-                <span className="md:text-2xl text-xl text-orange-400">M</span>
-                <span>O</span>
-                <span className="md:text-2xl text-xl text-green-600">V</span>
-                <span>I</span>
-                <span>E</span>
-                <span className="md:text-2xl text-xl text-orange-400">S</span>
-              </div>
-              <div>
-                <span className="md:text-2xl text-xl text-green-500">S</span>
-                <span>P</span>
-                <span className="md:text-2xl text-xl text-orange-400">A</span>
-                <span>C</span>
-                <span className="md:text-2xl text-xl text-green-500">E</span>
-              </div>
-            </div>
+    <div className="">
+      <div className="px-10 text-red-500  navbar bg-primary shadow-sm ">
+        <div className="flex-1 ">
+          <a className="btn btn-ghost font-mono text-xl">MOVIES SPACE</a>
+        </div>
 
-            <div className="hidden space-x-6 md:flex">
-              <Link to="/" className="hover:text-orange-400 transition">
-                Home
-              </Link>
-              <Link to="/genre" className="hover:text-orange-400 transition">
-                Genre
-              </Link>
-              <a href="#" className="hover:text-orange-400 transition">
-                WatchList
-              </a>
+        <div className="flex-none">
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                />
+              </div>
             </div>
-
-            <div className="md:hidden">
-              <button onClick={() => setIsNavOpen(!isNavOpen)}>
-                {isNavOpen ? <X size={28} /> : <Menu size={28} />}
-              </button>
-            </div>
+            <ul
+              tabIndex="-1"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-      {isNavOpen && (
-        <div className="flex justify-center">
-          <div className="md:hidden m-auto  w-[80%] rounded-3xl flex flex-col items-center bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] space-y-4 py-6 text-white">
-            <Link to="/" className="hover:text-orange-400 transition">
-              Home
-            </Link>
-            <Link to="/genre" className="hover:text-orange-400 transition">
-              Genre
-            </Link>
-            <Link href="#" className="hover:text-orange-400 transition">
-              WatchList
-            </Link>
-          </div>
-        </div>
-      )}
-    </>
+    </div>
   );
-}
+};
+
+export default Navbar;

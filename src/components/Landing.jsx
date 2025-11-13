@@ -1,60 +1,36 @@
-import { use, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router";
+import React from "react";
+import { Link } from "react-router";
 
-export default function Landing() {
-  const [input, setInput] = useState("");
-  const [movies, setMovies] = useState([]);
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-  console.log(input);
-  const fetchMovies = async () => {
-    const res = await fetch(
-      `https://www.omdbapi.com/?apikey=31188ba3&s=${
-        input ? input : "war"
-      }&type=movie`
-    );
-    const data = await res.json();
-    setMovies(data.Search);
-  };
-  useEffect(() => {
-    fetchMovies();
-  }, [input]);
+const Landing = () => {
   return (
-    <div className="max-w-1xl m-auto text-2xl mt-5 flex flex-col justify-center">
-      <div className="w-full flex justify-center mb-10">
-        <input
-          type="text"
-          placeholder="Search your movie..."
-          value={input}
-          onChange={handleInputChange}
-          className=" w-[50%] sm:w-1/2 bg-gradient-to-r from-[#ff512f] to-[#dd2476] 
-         placeholder-white shadow-[0_0_20px_rgba(255,100,100,0.5)]  lg:w-[40%] p-4 rounded-3xl text-black text-lg outline-none shadow-lg focus:shadow-xl transition-all duration-300"
-        />
-      </div>
-      <div className="movie-main mt-10 flex flex-wrap justify-center gap-10">
-        {movies?.map((movie) => {
-          const { Title, Poster } = movie;
-          return (
-            <Link
-              key={movie.imdbID}
-              to={`/movies/${movie.imdbID}`}
-              className="card w-60 md:1/2 md:w-1/3 movie-container flex flex-col gap-6 border-16 border-stone-800 bg-black   rounded-lg item-center justify-center text-white"
-            >
-              <div className="h-full w-full  rounded-t-lg">
-                <img
-                  className=" h-60 w-full object-cover"
-                  src={Poster}
-                  alt={Title}
-                />
-              </div>
-              <div className="p-2 bg-stone-900 text-white text-center truncate">
-                <p className="text-sm font-semibold">{Title}</p>
-              </div>
+    <div>
+      <div
+        className="hero min-h-[81.7vh]"
+        style={{
+          backgroundImage:
+            "url(https://wallpapers.com/images/hd/poster-background-hlybuowt1whxbh2z.jpg)",
+        }}
+      >
+        <div className="hero-overlay"></div>
+        <div className="hero-content text-neutral-content text-center">
+          <div className="max-w-xl">
+            <h1 className="mb-5 text-5xl font-bold ">Movies Space</h1>
+            <p className="mb-5 font-bold">
+              MovieSpace is your personal gateway to the world of cinema —
+              discover trending movies, explore detailed reviews, track your
+              favourites, and enjoy a smooth, modern experience built for movie
+              lovers. Whether you're searching for something new to watch or
+              exploring classics, MovieSpace brings everything together in one
+              simple, elegant platform.
+            </p>
+            <Link to="/movies">
+              <button className="btn btn-primary">Get Started</button>
             </Link>
-          );
-        })}
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Landing;

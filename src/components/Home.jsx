@@ -1,16 +1,19 @@
-import { NavLink } from "react-router";
-import Landing from "./Landing";
+import React from "react";
 import Navbar from "./Navbar";
+import { Outlet } from "react-router";
 import Footer from "./Footer";
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
-      <div className="min-h-screen w-full p-5 bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900">
-        <Navbar />
-        <Landing />
-        <Footer />
+      <Navbar />
+      <div className=" min-h-[81.7vh]">
+        <Outlet />
       </div>
+
+      <Footer />
     </div>
   );
-}
+};
+
+export default Home;
