@@ -1,3 +1,5 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
 import React, { useActionState, useEffect, useState } from "react";
 
 const Movies = () => {
@@ -13,20 +15,22 @@ const Movies = () => {
     );
     const data = await res.json();
     const data2 = await top.json();
-    setMovies(data.results);
-    setTopRated(data2.results);
+    setMovies(data.results.slice(0, 5));
+    setTopRated(data2.results.slice(0, 6));
   };
   console.log(topRated);
   useEffect(() => {
+    Aos.init({
+      duration: 800,
+      offset: 100,
+    });
     getPopularMovies();
   }, []);
   return (
-    <div className="bg-black min-h-[81.7vh] flex flex-col items-center justify-center gap-10 px-4">
-      <h1 className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2">
-        Most Popular Movies Of All Time
-      </h1>
+    <div className="bg-black  min-h-[81.7vh] flex flex-col items-center justify-center gap-10 px-4">
       <div className="w-full md:w-[85%] lg:w-[70%]">
         <div
+          data-aos="fade-up"
           className="carousel w-full rounded-2xl h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[75vh] 
              shadow-2xl overflow-hidden"
           style={{
@@ -99,8 +103,15 @@ const Movies = () => {
           })}
         </div>
       </div>
-
-      <div className="flex flex-wrap justify-center gap-6 px-2 sm:px-10 w-full">
+      <div>
+        <h1 className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2">
+          Most Popular
+        </h1>
+      </div>
+      <div
+        data-aos="fade-right"
+        className="flex flex-wrap justify-center gap-6 px-2 sm:px-10 w-full"
+      >
         {topRated?.map((movie) => {
           return (
             <a
