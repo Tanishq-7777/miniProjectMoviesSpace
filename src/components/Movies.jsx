@@ -5,11 +5,12 @@ import Trending from "./Trending";
 import Genre from "./Genre";
 import WhatWeOffer from "./WhatWeOffer";
 import { Link } from "react-router";
+import Card from "./Card";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [topRated, setTopRated] = useState([]);
-
+  const [query, setQuery] = useState("Pyaar");
   const getPopularMovies = async () => {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=576fc1f6c367a4a896800f2bb0b637ef`
@@ -142,6 +143,28 @@ const Movies = () => {
       </div>
       <div data-aos="fade-bottom">
         <WhatWeOffer />
+      </div>
+      <div data-aos="fade-right">
+        <h1 className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2">
+          Search Your Favourite Movie
+        </h1>
+      </div>
+      <div
+        data-aos="fade-right"
+        className="flex flex-wrap justify-center gap-6 px-2 sm:px-10 w-full"
+      >
+        <input
+          type="text"
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search movies..."
+          className="w-72 sm:w-96 px-4 py-2 rounded-xl 
+             bg-white/10 backdrop-blur-md border border-white/20 
+             text-white placeholder-gray-300
+             focus:outline-none focus:ring-2 focus:ring-purple-500 
+             transition-all duration-300"
+        />
+
+        <Card query={query} />
       </div>
     </div>
   );
