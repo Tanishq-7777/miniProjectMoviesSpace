@@ -1,11 +1,11 @@
-import BASE_URL from "@/utils/constanst";
+import BASE_URL from "../utils/constanst";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("saxenatan@gmail.com");
+  const [password, setPassword] = useState("Tani@2007");
   const navigate = useNavigate();
   const login = async () => {
     const res = await axios.post(

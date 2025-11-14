@@ -1,4 +1,4 @@
-import BASE_URL from "@/utils/constanst";
+import BASE_URL from "../utils/constanst";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";

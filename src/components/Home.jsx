@@ -3,12 +3,13 @@ import Navbar from "./Navbar";
 import { Outlet, useNavigate } from "react-router";
 import Footer from "./Footer";
 import axios from "axios";
+import BASE_URL from "../utils/constanst";
 
 const Home = () => {
   const [isValid, setIsValid] = useState(false);
   const navigate = useNavigate();
   const getProfile = async () => {
-    const res = await axios.get("http://localhost:7777/user", {
+    const res = await axios.get(BASE_URL + "user", {
       withCredentials: true,
     });
     if (res.data.length > 0) {
