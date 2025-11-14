@@ -4,6 +4,7 @@ import React, { useActionState, useEffect, useState } from "react";
 import Trending from "./Trending";
 import Genre from "./Genre";
 import WhatWeOffer from "./WhatWeOffer";
+import { Link } from "react-router";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -44,7 +45,8 @@ const Movies = () => {
         >
           {movies?.map((movie, index) => {
             return (
-              <div
+              <Link
+                to={`/movies/${movie.id}`}
                 id={`slide${index}`}
                 key={movie.id}
                 className="carousel-item relative w-full"
@@ -101,7 +103,7 @@ const Movies = () => {
                     ❯
                   </button>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

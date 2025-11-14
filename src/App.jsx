@@ -6,6 +6,7 @@ import Movies from "./components/Movies";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import MovieCard from "./components/MovieCard";
 export default function App() {
   useEffect(() => {
     AOS.init({
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/" element={<Landing />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/movies" element={<Movies />}></Route>
+            <Route path="/movies/:movieId" element={<MovieCard />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
