@@ -1,4 +1,4 @@
-import BASE_URL from "@/utils/constanst";
+import BASE_URL from "../utils/constanst";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
@@ -14,11 +14,7 @@ const Navbar = () => {
     console.log(user);
   };
   async function handleClick() {
-    await axios.post(
-      "http://localhost:7777/user/logout",
-      {},
-      { withCredentials: true }
-    );
+    await axios.post(BASE_URL + "user/logout", {}, { withCredentials: true });
     navigate("/login");
   }
   useEffect(() => {
