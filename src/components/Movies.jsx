@@ -2,6 +2,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import React, { useActionState, useEffect, useState } from "react";
 import Trending from "./Trending";
+import Genre from "./Genre";
+import WhatWeOffer from "./WhatWeOffer";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -16,19 +18,19 @@ const Movies = () => {
     );
     const data = await res.json();
     const data2 = await top.json();
-    setMovies(data.results.slice(0, 5));
+    setMovies(data.results.slice(3, 8));
     setTopRated(data2.results.slice(0, 6));
   };
   console.log(topRated);
   useEffect(() => {
     Aos.init({
-      duration: 800,
+      duration: 1000,
       offset: 100,
     });
     getPopularMovies();
   }, []);
   return (
-    <div className="bg-black  min-h-[81.7vh] flex flex-col items-center justify-center gap-10 px-4">
+    <div className="bg-black   overflow-x-hidden flex flex-col items-center justify-center gap-10 px-4">
       <div className="w-full md:w-[85%] lg:w-[70%]">
         <div
           data-aos="fade-up"
@@ -105,7 +107,10 @@ const Movies = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2">
+        <h1
+          data-aos="zoom-out"
+          className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2"
+        >
           Most Popular
         </h1>
       </div>
@@ -116,6 +121,25 @@ const Movies = () => {
         {topRated?.map((movie, index) => {
           return <Trending key={index} movie={movie} />;
         })}
+      </div>
+      <div>
+        <h1
+          data-aos="zoom-in"
+          className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2"
+        >
+          Genres
+        </h1>
+      </div>
+      <div data-aos="fade-left">
+        <Genre />
+      </div>
+      <div>
+        <h1 className="text-2xl mt-10 sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 drop-shadow-md text-center px-2">
+          What we Offer
+        </h1>
+      </div>
+      <div data-aos="fade-bottom">
+        <WhatWeOffer />
       </div>
     </div>
   );
