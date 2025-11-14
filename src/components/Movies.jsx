@@ -45,8 +45,7 @@ const Movies = () => {
         >
           {movies?.map((movie, index) => {
             return (
-              <Link
-                to={`/movies/${movie.id}`}
+              <div
                 id={`slide${index}`}
                 key={movie.id}
                 className="carousel-item relative w-full"
@@ -67,10 +66,11 @@ const Movies = () => {
                   <p className="text-sm sm:text-base opacity-80 max-w-lg">
                     ⭐ {movie.vote_average} — Released: {movie.release_date}
                   </p>
-
-                  <button className="px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-gray-300 transition-all text-sm sm:text-base">
-                    More Details
-                  </button>
+                  <Link to={`/movies/${movie.id}`}>
+                    <button className="px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-gray-300 transition-all text-sm sm:text-base">
+                      More Details
+                    </button>
+                  </Link>
                 </div>
 
                 <div className="absolute inset-y-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-black/40 to-transparent"></div>
@@ -103,7 +103,7 @@ const Movies = () => {
                     ❯
                   </button>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { NavLink } from "react-router";
 const Genre = () => {
   const [genre, setGenre] = useState([]);
 
@@ -24,7 +25,11 @@ const Genre = () => {
       <div className="flex flex-wrap gap-10 justify-center my-10 backdrop-blur-  py-5 w-[90%] ">
         {genre.map((singleGenre) => {
           return (
-            <div className="hover-3d group cursor-pointer">
+            <NavLink
+              to={`/genreDetail/${singleGenre.id}`}
+              key={singleGenre.id}
+              className="hover-3d group cursor-pointer"
+            >
               <figure
                 className="w-60 h-32 rounded-xl bg-gradient-to-br from-black via-neutral-900 to-neutral-800
  backdrop-blur-xl flex items-center justify-center shadow-xl"
@@ -50,7 +55,7 @@ const Genre = () => {
               <div></div>
               <div></div>
               <div></div>
-            </div>
+            </NavLink>
           );
         })}
       </div>

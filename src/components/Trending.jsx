@@ -1,7 +1,9 @@
+import { NavLink } from "react-router";
+
 const Trending = ({ movie }) => {
   return (
-    <a
-      href="#"
+    <NavLink
+      to={`/movies/${movie.id}`}
       className="group hover-3d my-10 cursor-pointer 
                  w-[90%] sm:w-[45%] md:w-[30%] lg:w-[30%] 
                  relative perspective-1000"
@@ -38,7 +40,7 @@ const Trending = ({ movie }) => {
           </div>
         </div>
       </div>
-    </a>
+    </NavLink>
   );
 };
 

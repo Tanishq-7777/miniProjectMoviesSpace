@@ -1,5 +1,30 @@
-import React from "react";
+import BASE_URL from "@/utils/constanst";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 const Navbar = () => {
+  const [photoUrl, setPhotoUrl] = useState();
+
+  const navigate = useNavigate();
+  const getUserInfo = async () => {
+    const user = await axios.get(BASE_URL + "user", {
+      withCredentials: true,
+    });
+    setPhotoUrl(user.data.data.photoUrl);
+    console.log(user);
+  };
+  async function handleClick() {
+    await axios.post(
+      "http://localhost:7777/user/logout",
+      {},
+      { withCredentials: true }
+    );
+    navigate("/login");
+  }
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+  console.log(photoUrl);
   return (
     <div className="">
       <div className="px-10 text-red-500  navbar bg-primary shadow-sm ">
@@ -17,7 +42,10 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={
+                    photoUrl ||
+                    "https://www.greengold.tv/assets/Character/CB/Bheem.jpg"
+                  }
                 />
               </div>
             </div>
@@ -35,7 +63,7 @@ const Navbar = () => {
                 <a>Settings</a>
               </li>
               <li>
-                <a>Logout</a>
+                <button onClick={handleClick}>Logout</button>
               </li>
             </ul>
           </div>
