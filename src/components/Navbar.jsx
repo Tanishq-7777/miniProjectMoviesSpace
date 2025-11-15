@@ -23,7 +23,7 @@ const Navbar = () => {
   console.log(photoUrl);
   return (
     <div className="">
-      <div className="px-10 text-red-500  navbar bg-primary shadow-sm ">
+      <div className="px-10 z-100 text-gray-400  navbar bg-primary shadow-sm ">
         <div className="flex-1 ">
           <a className="btn btn-ghost font-mono text-xl">MOVIES SPACE</a>
         </div>
@@ -47,7 +47,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 text-black rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <Link to="/" className="justify-between">
