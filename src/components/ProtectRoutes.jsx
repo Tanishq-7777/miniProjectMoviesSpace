@@ -13,8 +13,9 @@ const ProtectRoutes = ({ children }) => {
       .then(() => {
         setIsAuthenticated(true);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsAuthenticated(false);
+        console.log(err);
       })
       .finally(() => setLoading(false));
   }, []);

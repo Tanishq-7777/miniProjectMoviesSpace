@@ -1,7 +1,7 @@
 import BASE_URL from "../utils/constanst";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 const Navbar = () => {
   const [photoUrl, setPhotoUrl] = useState();
 
@@ -50,14 +50,22 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
+                <Link to="/" className="justify-between">
+                  Home
+                </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to="/movies" className="justify-between">
+                  Movies
+                </Link>
               </li>
+              <li>
+                <Link to="/music">
+                  <div>Music</div>
+                  <span className="badge">New</span>
+                </Link>
+              </li>
+
               <li>
                 <button onClick={handleClick}>Logout</button>
               </li>

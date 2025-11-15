@@ -8,25 +8,40 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [photoUrl, setPhotoUrl] = useState();
   const [password, setPassword] = useState();
-
+  const [error, setError] = useState();
   const navigate = useNavigate();
   async function handleSignUp() {
-    const res = await axios.post(
-      BASE_URL + "user/signup",
-      {
-        name,
-        photoUrl,
-        email,
-        password,
-      },
-      { withCredentials: true }
-    );
-    if (res.status == 200) {
-      navigate("/");
+    try {
+      const res = await axios.post(
+        BASE_URL + "user/signup",
+        {
+          name,
+          photoUrl,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
+      if (res.status == 200) {
+        navigate("/");
+      }
+    } catch (err) {
+      setError("Your Password must be strong and email should be correct.");
+      console.log(err.message);
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
     }
   }
   return (
     <div>
+      {error && (
+        <div className="toast toast-top toast-start">
+          <div className="alert alert-info">
+            <span>{error}</span>
+          </div>
+        </div>
+      )}
       <div className="hero flex justify-center  bg-accent min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

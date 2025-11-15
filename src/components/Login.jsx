@@ -6,18 +6,26 @@ import { Link, useNavigate } from "react-router";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const login = async () => {
-    const res = await axios.post(
-      BASE_URL + "user/login",
-      { email, password },
-      { withCredentials: true }
-    );
-    if (res.data) {
-      navigate("/");
-    }
 
-    console.log(res);
+  const login = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "user/login",
+        { email, password },
+        { withCredentials: true }
+      );
+      if (res.data) {
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err.response.data);
+      setError(err.response.data);
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
+    }
   };
   function handleLogin() {
     login();
@@ -25,6 +33,13 @@ const Login = () => {
 
   return (
     <div>
+      {error && (
+        <div className="toast toast-top toast-start">
+          <div className="alert bg-red-500 alert-info">
+            <span>{error}</span>
+          </div>
+        </div>
+      )}
       <div className="hero flex justify-center  bg-accent min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
