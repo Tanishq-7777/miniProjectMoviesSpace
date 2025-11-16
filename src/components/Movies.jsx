@@ -79,12 +79,18 @@ const Movies = () => {
 
                 <div className="absolute left-3 right-3 sm:left-5 sm:right-5 top-1/2 flex -translate-y-1/2 justify-between">
                   <button
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       const prevIndex =
                         index === 0 ? movies.length - 1 : index - 1;
-                      document
-                        .getElementById(`slide${prevIndex}`)
-                        .scrollIntoView({ behavior: "smooth" });
+                      const carousel = document.getElementById(
+                        `slide${prevIndex}`
+                      );
+                      carousel?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center",
+                      });
                     }}
                     className="btn btn-circle glass bg-white/10 hover:bg-white/30 text-white border-none"
                   >
@@ -92,12 +98,18 @@ const Movies = () => {
                   </button>
 
                   <button
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       const nextIndex =
                         index === movies.length - 1 ? 0 : index + 1;
-                      document
-                        .getElementById(`slide${nextIndex}`)
-                        .scrollIntoView({ behavior: "smooth" });
+                      const carousel = document.getElementById(
+                        `slide${nextIndex}`
+                      );
+                      carousel?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center",
+                      });
                     }}
                     className="btn btn-circle glass bg-white/10 hover:bg-white/30 text-white border-none"
                   >
