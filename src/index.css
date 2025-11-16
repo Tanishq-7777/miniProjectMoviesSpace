@@ -2,3 +2,9 @@
 @plugin "daisyui" {
   themes: all;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}

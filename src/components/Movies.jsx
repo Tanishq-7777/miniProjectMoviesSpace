@@ -23,7 +23,6 @@ const Movies = () => {
     setMovies(data.results.slice(3, 8));
     setTopRated(data2.results.slice(0, 6));
   };
-  console.log(topRated);
   useEffect(() => {
     Aos.init({
       duration: 1000,

@@ -4,7 +4,34 @@ import { useNavigate } from "react-router";
 const Music = () => {
   const [music, setMusic] = useState([]);
   const [query, setQuery] = useState("lag ja gale");
+
   const navigate = useNavigate();
+  const downloadMusic = async (link) => {
+    const url = `https://youtube-mp36.p.rapidapi.com/dl?id=${link}`;
+
+    const options = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "8a75c35cd3msh47bea06b172383ep17e501jsn190ac1c2224e",
+        "x-rapidapi-host": "youtube-mp36.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      const downloadUrl = data.link;
+      const a = document.createElement("a");
+      a.href = downloadUrl;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const searchMusic = async () => {
     if (!query) return;
 
@@ -21,6 +48,7 @@ const Music = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
+
       console.log(result);
       setMusic(result.result.slice(0, 10));
     } catch (error) {
@@ -33,11 +61,11 @@ const Music = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center min-h-screen p-4 bg-gradient-to-br from-black via-gray-900 to-gray-800">
-      <div className="mockup-phone border-[#ff8938] shadow-2xl h-[720px] w-[380px]">
+    <div className="flex justify-center no-scrollbar items-center  p-4 bg-gradient-to-br from-black via-gray-900 to-gray-800">
+      <div className="mockup-phone border-[#ff8938]  shadow-2xl h-150 w-75">
         <div className="mockup-phone-camera"></div>
 
-        <div className="mockup-phone-display bg-base-100 h-full overflow-y-auto p-4 pt-10 space-y-4 scrollbar-none">
+        <div className="mockup-phone-display bg-base-100 h-full overflow-y-auto p-4 pt-10 space-y-4 ">
           <div className="flex gap-2 sticky top-0 bg-base-100 pt-2 pb-4 z-50">
             <input
               type="text"
@@ -73,7 +101,12 @@ const Music = () => {
 
               <div className="flex justify-between text-sm text-gray-400">
                 <span>Duration: {song.duration}</span>
-                <span>{song.isExplicit ? "Explicit" : "Clean"}</span>
+                <button
+                  className=" btn btn-primary"
+                  onClick={() => downloadMusic(song.videoId)}
+                >
+                  Download
+                </button>
               </div>
             </div>
           ))}

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700/50">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+    <footer className="bg-gradient-to-r   from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700/50">
+      <div className="max-w-7xl h-20 mx-auto px-6 py-5 ">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center space-x-4">
             <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-2 rounded-lg shadow-lg">
