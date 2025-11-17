@@ -14,7 +14,6 @@ const Navbar = () => {
       withCredentials: true,
     });
     setPhotoUrl(user.data.data.photoUrl);
-    console.log(user);
   };
 
   async function handleClick() {
@@ -25,8 +24,6 @@ const Navbar = () => {
   useEffect(() => {
     getUserInfo();
   }, []);
-
-  console.log(photoUrl);
 
   return (
     <nav className="backdrop-blur-md bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 border-b border-gray-700/50 shadow-xl">
@@ -66,6 +63,15 @@ const Navbar = () => {
                 className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all duration-200 font-medium flex items-center gap-2"
               >
                 Music
+                <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold">
+                  New
+                </span>
+              </Link>
+              <Link
+                to="/history"
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all duration-200 font-medium flex items-center gap-2"
+              >
+                History
                 <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold">
                   New
                 </span>

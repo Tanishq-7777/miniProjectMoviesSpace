@@ -16,8 +16,6 @@ const Home = () => {
       navigate("/");
       setIsValid(true);
     }
-
-    console.log(res);
   };
   useState(() => {
     getProfile();

@@ -1,3 +1,5 @@
+import BASE_URL from "../utils/constanst";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 
@@ -25,19 +27,49 @@ const MovieCard = () => {
       (v) => v.type === "Trailer" && v.site === "YouTube"
     );
 
-    if (trailer) setTrailerKey(trailer.key);
+    return trailer ? trailer.key : null;
+  };
+
+  const sendUserHistory = async (movieId, movie, trailerKey) => {
+    const { title, vote_average, release_date, poster_path, overview } = movie;
+    const genres = (movie.genres || []).map((g) =>
+      typeof g === "string" ? g : g.name
+    );
+    await axios.post(
+      BASE_URL + "user/sendHistory",
+      {
+        title,
+        movieId,
+        vote_average,
+        release_date,
+        trailerKey,
+        poster_path,
+        overview,
+        genres,
+      },
+      {
+        withCredentials: true,
+      }
+    );
   };
 
   useEffect(() => {
-    getMovieById().then(setMovie);
-    getTrailer();
+    const load = async () => {
+      const movieData = await getMovieById();
+      setMovie(movieData);
+
+      const trailer = await getTrailer();
+      setTrailerKey(trailer);
+
+      sendUserHistory(movieId, movieData, trailer);
+    };
+
+    load();
   }, [movieId]);
-
   if (!movie) return <p className="text-center text-white">Loading...</p>;
-
+  console.log(movie);
   return (
     <div className="my-5">
-      {/* GO BACK BUTTON */}
       <button
         onClick={() => navigate(-1)}
         className="btn btn-outline ml-5 mb-4"
