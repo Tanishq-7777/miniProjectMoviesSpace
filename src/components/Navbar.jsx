@@ -182,6 +182,18 @@ const Navbar = () => {
                 </span>
               </div>
             </Link>
+            <Link
+              to="/history"
+              onClick={() => setIsMenuOpen(false)}
+              className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all duration-200 font-medium"
+            >
+              <div className="flex items-center justify-between">
+                <span>History</span>
+                <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold">
+                  New
+                </span>
+              </div>
+            </Link>
             <button
               onClick={handleClick}
               className="w-full flex items-center gap-2 px-4 py-2 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-all duration-200 font-medium"

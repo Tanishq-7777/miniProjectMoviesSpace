@@ -45,12 +45,6 @@ const History = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
-
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition">
-                      <button className="bg-white text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg transform hover:scale-105">
-                        ▶ Play Trailer
-                      </button>
-                    </div>
                   </div>
                 ) : (
                   <div className="h-52 flex items-center justify-center bg-black/50 text-gray-400">
