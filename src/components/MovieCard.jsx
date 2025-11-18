@@ -9,6 +9,7 @@ const MovieCard = () => {
 
   const [movie, setMovie] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
+  const [isWatchListClicked, setIsWatchListClicked] = useState(false);
 
   const getMovieById = async () => {
     const res = await fetch(
@@ -29,7 +30,33 @@ const MovieCard = () => {
 
     return trailer ? trailer.key : null;
   };
+  const handleAddToWatchList = async () => {
+    const { title, vote_average, release_date, poster_path, overview } = movie;
 
+    try {
+      await axios.post(
+        BASE_URL + "user/sendWatchList",
+        {
+          movieId,
+          title: title,
+          vote_average,
+          release_date,
+          trailerKey,
+          poster_path,
+          overview,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      setIsWatchListClicked(true);
+      setTimeout(() => {
+        setIsWatchListClicked(false);
+      }, 3000);
+    } catch (err) {
+      console.log(err.response?.data);
+    }
+  };
   const sendUserHistory = async (movieId, movie, trailerKey) => {
     const { title, vote_average, release_date, poster_path, overview } = movie;
     const genres = (movie.genres || []).map((g) =>
@@ -38,8 +65,9 @@ const MovieCard = () => {
     await axios.post(
       BASE_URL + "user/sendHistory",
       {
-        title,
         movieId,
+        title,
+
         vote_average,
         release_date,
         trailerKey,
@@ -67,7 +95,7 @@ const MovieCard = () => {
     load();
   }, [movieId]);
   if (!movie) return <p className="text-center text-white">Loading...</p>;
-  console.log(movie);
+
   return (
     <div className="my-5">
       <button
@@ -76,7 +104,13 @@ const MovieCard = () => {
       >
         ← Back
       </button>
-
+      {isWatchListClicked && (
+        <div className="toast toast-top toast-start">
+          <div className="alert bg-assent alert-info">
+            <span>Added to WatchList</span>
+          </div>
+        </div>
+      )}
       <div className="flex justify-center">
         <div className="card bg-base-100 w-[600px] shadow-xl">
           <figure className="w-full">
@@ -111,6 +145,14 @@ const MovieCard = () => {
             <p className="text-sm mt-2">
               <strong>Release:</strong> {movie.release_date}
             </p>
+
+            {/* ⭐ WATCHLIST BUTTON HERE ⭐ */}
+            <button
+              onClick={handleAddToWatchList}
+              className="btn btn-primary w-full mt-3"
+            >
+              ➕ Add to Watchlist
+            </button>
 
             <div className="card-actions justify-start mt-3 flex flex-wrap gap-2">
               {movie.genres?.map((genre) => (

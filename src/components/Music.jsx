@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Music = () => {
   const [music, setMusic] = useState([]);
   const [query, setQuery] = useState("lag ja gale");
@@ -57,12 +58,22 @@ const Music = () => {
   };
 
   useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      offset: 100,
+    });
     searchMusic();
   }, []);
 
   return (
-    <div className="flex justify-center no-scrollbar items-center  p-4 bg-gradient-to-br from-black via-gray-900 to-gray-800">
-      <div className="mockup-phone border-[#ff8938]  shadow-2xl h-150 w-75">
+    <div
+      data-aos="fade-out"
+      className="flex justify-center no-scrollbar items-center  p-4 bg-gradient-to-br from-black via-gray-900 to-gray-800"
+    >
+      <div
+        data-aos="fade-left"
+        className="mockup-phone border-[#ff8938]  shadow-2xl h-150 w-75"
+      >
         <div className="mockup-phone-camera"></div>
 
         <div className="mockup-phone-display bg-base-100 h-full overflow-y-auto p-4 pt-10 space-y-4 ">

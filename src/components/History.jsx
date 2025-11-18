@@ -1,7 +1,8 @@
 import BASE_URL from "../utils/constanst";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const History = () => {
   const [history, setHistory] = useState();
 
@@ -13,6 +14,10 @@ const History = () => {
   };
 
   useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      offset: 100,
+    });
     getHistoryData();
   }, []);
 
@@ -27,7 +32,10 @@ const History = () => {
       ) : history.length === 0 ? (
         <p className="text-gray-500 text-lg">You have no watch history yet.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-7">
+        <div
+          data-aos="fade-left"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-7"
+        >
           {history.map((movie) => (
             <div
               key={movie._id}

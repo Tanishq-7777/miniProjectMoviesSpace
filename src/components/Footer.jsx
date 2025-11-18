@@ -1,72 +1,82 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r   from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700/50">
-      <div className="max-w-7xl h-20 mx-auto px-6 py-5 ">
+    <footer className="bg-[#0c0c0c] border-t border-gray-800">
+      <div className="max-w-7xl mx-auto px-6 py-5">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Left */}
           <div className="flex items-center space-x-4">
-            <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-2 rounded-lg shadow-lg">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                fillRule="evenodd"
-                clipRule="evenodd"
-                className="fill-white"
-              >
-                <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
-              </svg>
-            </div>
             <p className="text-gray-400 text-sm">
-              Copyright © {new Date().getFullYear()} Movies Space. All rights
-              reserved.
+              © {new Date().getFullYear()} Movies Space. All rights reserved.
             </p>
           </div>
 
+          {/* Right Icons */}
           <nav className="flex items-center gap-4">
+            {/* Twitter */}
             <a
               href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700/50 text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-200"
-              aria-label="Twitter"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#181818] text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-200"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 className="fill-current"
               >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 
+                  1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 
+                  1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 
+                  0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144
+                  -1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247
+                  -2.229-.616-.054 2.281 1.581 4.415 3.949 
+                  4.89-.693.188-1.452.232-2.224.084.626 1.956 
+                  2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 
+                  2.04 2.179 1.397 4.768 2.212 7.548 2.212 
+                  9.142 0 14.307-7.721 13.995-14.646.962-.695 
+                  1.797-1.562 2.457-2.549z"
+                ></path>
               </svg>
             </a>
+
+            {/* YouTube */}
             <a
               href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700/50 text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-200"
-              aria-label="YouTube"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#181818] text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-200"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 className="fill-current"
               >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 
+                  0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 
+                  8.549 4.385 8.816 3.6.245 11.626.246 15.23 
+                  0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185
+                  -.484-8.549-4.385-8.816zm-10.615 
+                  12.816v-8l8 3.993-8 4.007z"
+                ></path>
               </svg>
             </a>
+
+            {/* Facebook */}
             <a
               href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700/50 text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-200"
-              aria-label="Facebook"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#181818] text-gray-400 hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-200"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 className="fill-current"
               >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667
+                  c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808
+                  c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                ></path>
               </svg>
             </a>
           </nav>
@@ -75,4 +85,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

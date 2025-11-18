@@ -12,6 +12,7 @@ import ProtectRoutes from "./components/ProtectRoutes";
 import Signup from "./components/Signup";
 import Music from "./components/Music";
 import History from "./components/History";
+import WatchList from "./components/WatchList";
 
 export default function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="genreDetail/:genreId" element={<GenreCard />} />
             <Route path="/music" element={<Music />} />
             <Route path="/history" element={<History />} />
+            <Route path="/watchlist" element={<WatchList />} />
           </Route>
         </Routes>
       </BrowserRouter>
