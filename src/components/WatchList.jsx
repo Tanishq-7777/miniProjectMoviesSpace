@@ -85,7 +85,6 @@ const WatchList = () => {
                 <strong>Release:</strong> {movie.release_date}
               </p>
 
-              {/* ⭐ Remove Button */}
               <button
                 onClick={() => deleteWatchList(movie.movieId)}
                 className="btn btn-error btn-sm w-full mt-3"

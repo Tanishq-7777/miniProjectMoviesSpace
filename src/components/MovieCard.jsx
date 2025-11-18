@@ -98,19 +98,19 @@ const MovieCard = () => {
 
   return (
     <div className="my-5">
+      {isWatchListClicked && (
+        <div className="fixed top-5 left-5 z-[9999] animate-slideIn bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg">
+          Added to WatchList
+        </div>
+      )}
+
       <button
         onClick={() => navigate(-1)}
         className="btn btn-outline ml-5 mb-4"
       >
         ← Back
       </button>
-      {isWatchListClicked && (
-        <div className="toast toast-top toast-start">
-          <div className="alert bg-assent alert-info">
-            <span>Added to WatchList</span>
-          </div>
-        </div>
-      )}
+
       <div className="flex justify-center">
         <div className="card bg-base-100 w-[600px] shadow-xl">
           <figure className="w-full">
@@ -146,7 +146,6 @@ const MovieCard = () => {
               <strong>Release:</strong> {movie.release_date}
             </p>
 
-            {/* ⭐ WATCHLIST BUTTON HERE ⭐ */}
             <button
               onClick={handleAddToWatchList}
               className="btn btn-primary w-full mt-3"
