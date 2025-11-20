@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [photoUrl, setPhotoUrl] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [historyOpen, setHistoryOpen] = useState(false); // dropdown toggle
   const [userName, setUserName] = useState("");
 
   const navigate = useNavigate();
@@ -36,14 +37,6 @@ const Navbar = () => {
     getUserInfo();
   }, []);
 
-  const navItems = [
-    { name: "Home", to: "/" },
-    { name: "Movies", to: "/movies" },
-    { name: "Music", to: "/music" },
-    { name: "Watchlist", to: "/watchList" },
-    { name: "History", to: "/history" },
-  ];
-
   return (
     <nav className="bg-gradient-to-r from-[#0a0a0a] via-[#101010] to-[#0a0a0a] border-b border-gray-800/60 shadow-2xl backdrop-blur-xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
@@ -69,21 +62,68 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
+          <Link
+            to="/"
+            className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
+          >
+            Home
+            <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
+          </Link>
+
+          <Link
+            to="/movies"
+            className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
+          >
+            Movies
+            <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
+          </Link>
+
+          <Link
+            to="/music"
+            className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
+          >
+            Music
+            <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
+          </Link>
+
+          <Link
+            to="/watchList"
+            className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
+          >
+            Watchlist
+            <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
+          </Link>
+          <div className="relative">
+            <button
+              onClick={() => setHistoryOpen(!historyOpen)}
               className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
             >
-              {item.name}
+              History
               <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
-            </Link>
-          ))}
-        </div>
+            </button>
 
-        {/* Desktop User Elements */}
+            {historyOpen && (
+              <div className="absolute mt-2 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-lg py-2 w-40">
+                <Link
+                  to="/history"
+                  onClick={() => setHistoryOpen(false)}
+                  className="block px-4 py-2 text-gray-300 hover:bg-gray-700 transition text-sm"
+                >
+                  Movie History
+                </Link>
+
+                <Link
+                  to="/musicHistory"
+                  onClick={() => setHistoryOpen(false)}
+                  className="block px-4 py-2 text-gray-300 hover:bg-gray-700 transition text-sm"
+                >
+                  Music History
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
         <div className="hidden md:flex items-center gap-5">
-          {/* Welcome */}
           {userName && (
             <div className="hidden lg:flex text-sm bg-white/5 px-3 py-1.5 rounded-lg text-gray-300 border border-white/10 shadow-lg backdrop-blur-md">
               Welcome,{" "}
@@ -91,7 +131,6 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Avatar */}
           <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-purple-500 shadow-md cursor-pointer hover:ring-purple-300 transition">
             <img
               src={
@@ -103,7 +142,6 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Logout */}
           <button
             onClick={handleClick}
             className="px-4 py-1.5 bg-red-600/80 hover:bg-red-700 text-white text-sm rounded-lg shadow-md transition font-medium"
@@ -112,7 +150,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Hamburger */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden text-gray-300 hover:text-white transition text-3xl p-1"
@@ -121,14 +158,13 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           isMenuOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
         <div className="bg-[#111] py-4 px-6 text-gray-300 space-y-2 border-t border-gray-800">
-          {/* Mobile Profile Section */}
           <div className="flex items-center gap-3 pb-3 border-b border-gray-800">
             <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-purple-500">
               <img
@@ -150,19 +186,60 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile Nav Links */}
-          {navItems.map((item, i) => (
-            <Link
-              key={i}
-              to={item.to}
-              className="block py-2 px-3 hover:bg-gray-800 rounded-lg text-sm font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
+          <Link
+            to="/"
+            className="block py-2 px-3 hover:bg-gray-800 rounded-lg text-sm font-medium"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </Link>
 
-          {/* Mobile logout */}
+          <Link
+            to="/movies"
+            className="block py-2 px-3 hover:bg-gray-800 rounded-lg text-sm font-medium"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Movies
+          </Link>
+
+          <Link
+            to="/music"
+            className="block py-2 px-3 hover:bg-gray-800 rounded-lg text-sm font-medium"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Music
+          </Link>
+
+          <Link
+            to="/watchList"
+            className="block py-2 px-3 hover:bg-gray-800 rounded-lg text-sm font-medium"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Watchlist
+          </Link>
+
+          <details className="px-3 py-2 bg-[#0f0f0f] rounded-lg">
+            <summary className="cursor-pointer text-sm font-medium">
+              History
+            </summary>
+
+            <Link
+              to="/history"
+              onClick={() => setIsMenuOpen(false)}
+              className="block px-4 py-2 text-gray-300 hover:bg-gray-800 text-sm"
+            >
+              Movie History
+            </Link>
+
+            <Link
+              to="/musicHistory"
+              onClick={() => setIsMenuOpen(false)}
+              className="block px-4 py-2 text-gray-300 hover:bg-gray-800 text-sm"
+            >
+              Music History
+            </Link>
+          </details>
+
           <button
             onClick={() => {
               handleClick();
