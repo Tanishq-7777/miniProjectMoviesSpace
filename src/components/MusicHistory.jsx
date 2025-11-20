@@ -29,7 +29,7 @@ const MusicHistory = () => {
   }, [musicHistory]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-4 py-8">
+    <div className="min-h-[81.7vh] bg-gradient-to-br from-black via-gray-900 to-black text-white px-4 py-8">
       <h1 className="text-3xl font-extrabold mb-8 text-center tracking-wide text-purple-400">
         🎵 Your Music History
       </h1>

@@ -24,7 +24,7 @@ export default function App() {
   }, []);
 
   return (
-    <div data-theme="lofi" className="w-full  scroll-smooth">
+    <div data-theme="lofi" className="w-full  scroll-smooth ">
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/login" element={<Login />} />

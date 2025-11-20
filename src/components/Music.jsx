@@ -59,6 +59,7 @@ const Music = () => {
       console.error("API Error:", error);
     }
   };
+
   const handleMusicHistory = async (song) => {
     const { author, title, thumbnail, videoId } = song;
 
@@ -79,8 +80,10 @@ const Music = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center p-4 bg-black min-h-screen">
-      <div className="w-full max-w-md bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-700">
+    <div className="min-h-screen bg-black flex justify-center items-start p-4">
+      {/* ⬆ Wider container for better mobile sizing */}
+      <div className="w-full max-w-2xl mx-auto bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-700">
+        {/* Search Bar */}
         <div className="p-4 sticky top-0 bg-gray-900 z-50 flex gap-2 border-b border-gray-700">
           <input
             type="text"
@@ -97,14 +100,16 @@ const Music = () => {
           </button>
         </div>
 
-        <div className="p-4 space-y-6">
+        {/* Song Cards */}
+        <div className="p-4 sm:p-6 space-y-6">
           {music.map((song, index) => (
             <div
               key={index}
-              className="bg-gray-800 rounded-2xl p-3 shadow-lg border border-gray-700"
+              className="bg-gray-800 rounded-2xl p-4 shadow-lg border border-gray-700"
             >
-              <div className="mt-3 rounded-xl overflow-hidden">
-                <div className="relative pt-[56.25%] rounded-xl overflow-hidden">
+              {/* Video Player */}
+              <div className="rounded-xl overflow-hidden">
+                <div className="relative pt-[56.25%] rounded-xl">
                   <ReactPlayer
                     src={`https://www.youtube.com/watch?v=${song.videoId}`}
                     controls
@@ -116,11 +121,16 @@ const Music = () => {
                 </div>
               </div>
 
-              <div className="text-center mt-3">
-                <h2 className="text-lg font-bold text-white">{song.title}</h2>
+              {/* Text */}
+              <div className="text-center mt-4">
+                <h2 className="text-lg sm:text-xl font-bold text-white">
+                  {song.title}
+                </h2>
                 <p className="text-sm text-gray-400">{song.author}</p>
               </div>
-              <div className="flex justify-between items-center text-sm text-gray-300 mt-3">
+
+              {/* Buttons + Duration */}
+              <div className="flex justify-between items-center text-sm text-gray-300 mt-4">
                 <span>⏱ {song.duration}</span>
 
                 <button

@@ -39,8 +39,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-[#0a0a0a] via-[#101010] to-[#0a0a0a] border-b border-gray-800/60 shadow-2xl backdrop-blur-xl sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+    <nav className="bg-gradient-to-r from-[#0a0a0a] via-[#101010] to-[#0a0a0a] border-b border-gray-800/60 shadow-2xl backdrop-blur-xl sticky top-0 z-[9999]">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center  py-1 pr-6 lg:pr-10">
           <img
             src={logo}
@@ -48,7 +48,7 @@ const Navbar = () => {
             className="h-10 absolute left-20 top-6 sm:top-5 sm:left-30 w-auto scale-450 object-contain origin-center"
           />
         </Link>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden ml-40 md:flex items-center gap-8">
           <Link
             to="/"
             className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
@@ -91,7 +91,7 @@ const Navbar = () => {
             </button>
 
             {historyOpen && (
-              <div className="absolute mt-2 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-lg py-2 w-40">
+              <div className="absolute top-full mt-2 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-lg py-2 w-40 z-[9999]">
                 <Link
                   to="/history"
                   onClick={() => setHistoryOpen(false)}
