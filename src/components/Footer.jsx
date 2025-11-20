@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+import logo from "../assets/Black White Modern Letter A Logo Design.png";
 const Footer = () => {
   return (
     <footer className="bg-[#0c0c0c] border-t border-gray-800">
@@ -5,8 +7,17 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Left */}
           <div className="flex items-center space-x-4">
+            {/* LOGO */}
+            <Link to="/" className="flex items-center py-1 pr-6 lg:pr-10">
+              <img
+                src={logo}
+                alt="App Logo"
+                className="h-10 w-auto scale-250  object-contain origin-center"
+              />
+            </Link>
+
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Movies Space. All rights reserved.
+              © {new Date().getFullYear()} Muvies. All rights reserved.
             </p>
           </div>
 

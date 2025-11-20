@@ -2,11 +2,12 @@ import BASE_URL from "../utils/constanst";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/Black White Modern Letter A Logo Design.png";
 
 const Navbar = () => {
   const [photoUrl, setPhotoUrl] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [historyOpen, setHistoryOpen] = useState(false); // dropdown toggle
+  const [historyOpen, setHistoryOpen] = useState(false);
   const [userName, setUserName] = useState("");
 
   const navigate = useNavigate();
@@ -40,27 +41,13 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-[#0a0a0a] via-[#101010] to-[#0a0a0a] border-b border-gray-800/60 shadow-2xl backdrop-blur-xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center group py-1">
-          <svg
-            className="w-8 h-8 text-purple-500 group-hover:text-purple-400 transition"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
-            ></path>
-          </svg>
-
-          <h1 className="text-2xl font-extrabold text-white ml-2 tracking-wider group-hover:text-purple-300 transition">
-            MovieSpace
-          </h1>
+        <Link to="/" className="flex items-center  py-1 pr-6 lg:pr-10">
+          <img
+            src={logo}
+            alt="App Logo"
+            className="h-10 absolute left-20 top-6 sm:top-5 sm:left-30 w-auto scale-450 object-contain origin-center"
+          />
         </Link>
-
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           <Link
             to="/"
@@ -93,6 +80,7 @@ const Navbar = () => {
             Watchlist
             <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
           </Link>
+
           <div className="relative">
             <button
               onClick={() => setHistoryOpen(!historyOpen)}
@@ -123,6 +111,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
+
         <div className="hidden md:flex items-center gap-5">
           {userName && (
             <div className="hidden lg:flex text-sm bg-white/5 px-3 py-1.5 rounded-lg text-gray-300 border border-white/10 shadow-lg backdrop-blur-md">
@@ -149,7 +138,6 @@ const Navbar = () => {
             Logout
           </button>
         </div>
-
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden text-gray-300 hover:text-white transition text-3xl p-1"
@@ -158,7 +146,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           isMenuOpen ? "max-h-screen" : "max-h-0"
@@ -225,16 +212,16 @@ const Navbar = () => {
 
             <Link
               to="/history"
-              onClick={() => setIsMenuOpen(false)}
               className="block px-4 py-2 text-gray-300 hover:bg-gray-800 text-sm"
+              onClick={() => setIsMenuOpen(false)}
             >
               Movie History
             </Link>
 
             <Link
               to="/musicHistory"
-              onClick={() => setIsMenuOpen(false)}
               className="block px-4 py-2 text-gray-300 hover:bg-gray-800 text-sm"
+              onClick={() => setIsMenuOpen(false)}
             >
               Music History
             </Link>

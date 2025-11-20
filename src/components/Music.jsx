@@ -81,7 +81,6 @@ const Music = () => {
   return (
     <div className="flex justify-center items-center p-4 bg-black min-h-screen">
       <div className="w-full max-w-md bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-700">
-        {/* SEARCH BAR */}
         <div className="p-4 sticky top-0 bg-gray-900 z-50 flex gap-2 border-b border-gray-700">
           <input
             type="text"
