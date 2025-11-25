@@ -14,6 +14,7 @@ import Music from "./components/Music";
 import History from "./components/History";
 import WatchList from "./components/WatchList";
 import MusicHistory from "./components/MusicHistory";
+import Chat from "./components/Chat";
 
 export default function App() {
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/history" element={<History />} />
             <Route path="/musichistory" element={<MusicHistory />} />
             <Route path="/watchlist" element={<WatchList />} />
+            <Route path="/chat" element={<Chat />} />
           </Route>
         </Routes>
       </BrowserRouter>

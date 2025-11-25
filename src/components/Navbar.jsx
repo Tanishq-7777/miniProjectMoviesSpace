@@ -110,6 +110,13 @@ const Navbar = () => {
               </div>
             )}
           </div>
+          <Link
+            to="/chat"
+            className="relative text-gray-300 hover:text-white transition text-sm font-semibold group"
+          >
+            Chat
+            <span className="absolute left-0 -bottom-1 w-0 h-[3px] bg-purple-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-5">
@@ -226,6 +233,13 @@ const Navbar = () => {
               Music History
             </Link>
           </details>
+          <Link
+            to="/chat"
+            className="block py-2 px-3 hover:bg-gray-800 rounded-lg text-sm font-medium"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Chat
+          </Link>
 
           <button
             onClick={() => {
